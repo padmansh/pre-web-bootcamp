@@ -3,17 +3,22 @@ import { useState } from "react";
 
 const Card = ({ data, handleDelete, canDel }) => {
   const [flip, setFlip] = useState(false);
+
   return (
     <>
       <div className="card-container">
         <div
           className={`card card-que ${flip ? "flip" : "anti-flip"}`}
-          onClick={() => setFlip(true)}
+          onClick={(e) => {
+            if (e.target.id !== "del") {
+              setFlip(true);
+            }
+          }}
         >
           <div className="text-container">{data.question}</div>
           {canDel && (
-          <div>
             <img
+              id="del"
               src={del}
               alt="delete"
               width="24px"
@@ -21,17 +26,20 @@ const Card = ({ data, handleDelete, canDel }) => {
               onClick={() => handleDelete(data._id)}
               className={`del-icon`}
             />
-          </div>
-        )}
+          )}
         </div>
         <div
           className={`card card-ans ${flip ? "anti-flip" : "flip"}`}
-          onClick={() => setFlip(false)}
+          onClick={(e) => {
+            if (e.target.id !== "del") {
+              setFlip(false);
+            }
+          }}
         >
           <div className="text-container">{data.answer}</div>
           {canDel && (
-          <div>
             <img
+              id="del"
               src={del}
               alt="delete"
               width="24px"
@@ -39,10 +47,8 @@ const Card = ({ data, handleDelete, canDel }) => {
               onClick={() => handleDelete(data._id)}
               className={`del-icon`}
             />
-          </div>
-        )}
+          )}
         </div>
-        
       </div>
     </>
   );
