@@ -47,11 +47,13 @@ const FlashCards = () => {
             />
           ))}
           {cardData.length === 0 && (
-            <Card
-              data={{ question: "demo", answer: "demo" }}
-              key={0}
-              canDel={false}
-            />
+            <>
+              <Card
+                data={{ question: "demo", answer: "demo" }}
+                key={0}
+                canDel={false}
+              />
+            </>
           )}
         </div>
       </section>

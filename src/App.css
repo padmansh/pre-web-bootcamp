@@ -50,13 +50,13 @@
 .flip {
   transform: rotateY(180deg);
   transform-style: preserve-3d;
-  transition: 800ms;
+  transition: 400ms;
 }
 
 .anti-flip {
   transform: rotateY(0deg);
   transform-style: preserve-3d;
-  transition: 800ms;
+  transition: 400ms;
 }
 
 .add-button {
